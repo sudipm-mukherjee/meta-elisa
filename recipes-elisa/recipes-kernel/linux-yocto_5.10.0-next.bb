@@ -4,14 +4,15 @@ require recipes-kernel/linux/linux-yocto.inc
 
 SRC_URI_remove = " file://net-sch_generic-Use-pfifo_fast-as-fallback-scheduler.patch"
 
-SRCREV_machine = "951cbbc386ff01b50da4f46387e994e81d9ab431"
+SRCREV = "${AUTOREV}"
 SRCREV_meta = "d5ca337b7e9b5834c83b629b5456bb4744efa644"
 
-SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;name=machine;branch=linux-5.9.y; \
+SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git; \
            git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.8;destsuffix=${KMETA} "
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
-LINUX_VERSION ?= "5.9.8"
+LINUX_VERSION ?= "5.10.0-next"
+KERNEL_VERSION_SANITY_SKIP="1"
 
 DEPENDS += "${@bb.utils.contains('ARCH', 'x86', 'elfutils-native', '', d)}"
 DEPENDS += "openssl-native util-linux-native"
