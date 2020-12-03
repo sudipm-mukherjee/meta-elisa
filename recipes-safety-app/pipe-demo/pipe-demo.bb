@@ -14,7 +14,7 @@ SRC_URI = "git://github.com/Jochen-Kall/Safety-app.git;branch=control_pipe;proto
 #SRC_URI = "git:////home/jochen/Documents/Safety-app;branch=main"
 
 #set the revision to "latest" to make development more convenient
-SRCREV = "${AUTOREV}"
+SRCREV = "861fd69e0f1b183ac656751abd5f6cf149133fac"
 
 #needed to install systemd services
 inherit systemd
