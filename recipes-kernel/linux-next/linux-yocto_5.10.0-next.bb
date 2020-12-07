@@ -2,6 +2,8 @@
 inherit kernel kernel-yocto
 require recipes-kernel/linux/linux-yocto.inc
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+
 SRC_URI_remove = " file://net-sch_generic-Use-pfifo_fast-as-fallback-scheduler.patch"
 
 SRCREV = "${AUTOREV}"
@@ -9,6 +11,8 @@ SRCREV_meta = "d5ca337b7e9b5834c83b629b5456bb4744efa644"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git; \
            git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-5.8;destsuffix=${KMETA} "
+
+SRC_URI += " file://kerneltest.cfg"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 LINUX_VERSION ?= "5.10.0-next"
